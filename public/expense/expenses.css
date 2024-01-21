@@ -1,0 +1,276 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.navbar {
+  background-color: #465361;
+  height: 100px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-right {
+  margin-left: 100px; 
+  float: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-title {
+  font-size: 25px;
+  color: #fff;
+  margin: 0;
+  margin-right: auto;
+}
+
+.navbar-link {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+}
+
+#premium-div {
+  text-align: center;
+}
+
+.premium-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #196191;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.premium-button:hover {
+  background-color: #3b7599;
+}
+
+#premium-button:disabled {
+  background-color: #bdc3c7;
+  color: #7f8c8d;
+  cursor: not-allowed;
+}
+
+/* Container and Column/Row Styles */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.row {
+  flex: 1;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #eaeaea;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 20px ;
+  padding: 10px;
+  width: auto;
+}
+
+/* Form Styles */
+#myForm,
+.form-control {
+  width: 90%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #eaeaea;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* Button Styles */
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.btn-info{
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+}
+.btn-danger {
+  background-color: red;
+  padding: 10px 20px;
+  margin: 2px;
+  font-size: 12px; 
+}
+.btn:hover {
+  background-color: #0056b3;
+}
+
+.add-expense-btn {
+  width: 90%;
+}
+#add-income{
+  width:90%
+}
+
+/* Additional Styles for Section and Card Elements */
+.section {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  background-color: #f0f0f0;
+}
+/* List Styles */
+.list-row {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  border: 1px solid #eaeaea;
+  margin: 10px; /* Adjust margin for spacing */
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  width: 100%; /* Adjust width for the entire container */
+}
+
+/* List Group Item Styles */
+.list-group-item {
+  font-size: 18px;
+  margin: 10px 0; 
+}
+
+#premium_user {
+  color: whitesmoke;
+  text-shadow: 2px 2px 4px black;
+}
+#leaderboardtitle{
+  text-align: center;
+}
+#leaderboardModal{
+  margin-top: 20px;
+}
+#leaderboardList{
+  text-align: center;
+  font-size: 25px;
+  font-family:Arial, Helvetica, sans-serif;
+}
+#closeModal{
+  font-size: 40px;
+  color: red;
+}
+
+#premiumBtn{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
+}
+#title1{
+  color: rgb(247, 42, 178);
+  font-family: sans-serif; 
+  text-shadow: 2px 2px 4px #000000
+}
+#title2{
+  color: rgb(255, 208, 0);
+  text-shadow: #0056b3;
+  font-family:  sans-serif; 
+  text-shadow: 2px 2px 4px #000000
+}
+#title{
+  text-align: left;
+}
+#bgimage{
+  background-image: url('../images/plants-reforestation-cute-project-proposal-nature-powerpoint-background_caf92e9271__960_540.avif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 45rem ;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .navbar {
+      height: auto;
+      flex-direction: column;
+      align-items: stretch;
+    }
+  #title{
+    text-align: left;
+  }
+    .navbar-right {
+      margin-left: 0;
+      margin-top: 5px; 
+    }
+  
+    .navbar-link {
+      margin: 10px 0;
+      margin-left: 0;
+    }
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .column {
+    margin-bottom: 20px;
+  }
+
+  .row {
+    margin: 10px 0;
+    flex-direction: column;
+  }
+  
+}
+
+
