@@ -1,6 +1,6 @@
 const Order = require('../model/order');
 const Razorpay = require('razorpay');
-const sequelize = require('../util/database');
+const mongoose = require("mongoose");
 const ordersDB = require('../model/order');
 const users = require('../model/login');
 

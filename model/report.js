@@ -1,11 +1,11 @@
-const Sequelize=require('sequelize');
-const sequelize=require('../util/database');
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-const report=sequelize.define("downloadreports",{
+const report=new Schema({
     fileUrl:{
-        type:Sequelize.STRING,
+        type:String,
         required:true
     }
 })
 
-module.exports=report;
+module.exports = mongoose.model("report", report);

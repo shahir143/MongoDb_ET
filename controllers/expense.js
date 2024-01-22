@@ -1,5 +1,6 @@
 const Expense = require('../model/expense');
-const Sequelize= require('../util/database');
+const mongoose = require("mongoose");
+
 exports.saveIncome=async (req, res) => {
     let t;
     try {
