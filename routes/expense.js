@@ -9,7 +9,7 @@ route.get('/getprevList',userAuthorization.authorizationToken, reportController.
 
 route.delete('/delExpense/:id',userAuthorization.authorizationToken,controllerExpense.deleteData);
 route.post('/addExpense',userAuthorization.authorizationToken,controllerExpense.saveData);
-route.get('/Expenses',userAuthorization.authorizationToken, controllerExpense.getData);
+route.get('/Expenses',userAuthorization.authorizationToken, controllerExpense.getDataFromDb);
 route.post('/addIncome',userAuthorization.authorizationToken, controllerExpense.saveIncome);
 route.get('/paginationExpense',userAuthorization.authorizationToken, controllerExpense.getPageData);
 

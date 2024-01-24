@@ -49,7 +49,7 @@ try{
 exports.resetPassword = async (req, res) => {
   const id = req.params.id;
   try {
-    const resetReq = await forgetPass.findOne({ where: { uuid: id } });
+    const resetReq = await forgetPass.findOne({ uuid: id });
 
     if (resetReq.isActive) {
       res.send(`
@@ -128,9 +128,9 @@ exports.updatePassword = async (req, res) => {
     const id = req.params.id;
     const { password } = req.body;
 
-    const resetReq = await forgetPass.findOne({ where: { uuid: id } });
+    const resetReq = await forgetPassfindOne({ uuid: id });
     console.log(resetReq);
-    const user = await User.findOne({ where: { id: resetReq.userId } });
+    const user = await User.findOne({  id: resetReq.userId });
     console.log(user);
     if (resetReq.isActive) {
       const hash = bcrypt.hashSync(password, 10);

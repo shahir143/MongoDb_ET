@@ -1,6 +1,6 @@
 const myform=document.getElementById('my-Form');
 const userEmail=document.getElementById('Email');
-const API_BASE_URL = 'http://3.110.88.166:4000';
+const API_BASE_URL = 'http://localhost:4000';
 
 myform.addEventListener('submit', resetPass);
 

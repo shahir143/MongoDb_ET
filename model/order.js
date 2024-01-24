@@ -11,6 +11,10 @@ const order=new Schema({
     paymentId:String,
     orderId:String,
     status:String,
+    user: {
+		type: Schema.Types.ObjectId,
+		ref: "User",
+	},
 })
 
 module.exports = mongoose.model("Order",order);

@@ -18,7 +18,7 @@ const downloadListBtn = document.getElementById('Downloadboard');
 const showleaderBtn = document.getElementById('leaderboardModal');
 const boardList = document.getElementById('leaderboardList');
 const home=document.getElementById('Home');
-const API_BASE_URL = 'http://3.110.88.166:4000';
+const API_BASE_URL = 'http://localhost:4000';
 
 window.addEventListener('DOMContentLoaded', displayData);
 form.addEventListener('click', saveData);
@@ -69,7 +69,8 @@ async function addIncome(e){
         const { data } = await axios.post(`${API_BASE_URL}/expense/addIncome`, obj, {
              headers: { Authorization: token } 
             });
-            console.log(data);
+            incomeAmount.value="";
+            incomeDecr.value="";
     } catch (error) {
         console.error('Error in saving form', error);
     }
@@ -82,7 +83,12 @@ async function saveData(e) {
         const { data } = await axios.post(`${API_BASE_URL}/expense/addExpense`, obj, {
              headers: { Authorization: token } 
             });
-        displayExpenses(data.data);
+            console.log(data.data[0])
+            userExpenses.value="";
+            userDescription.value="";
+            userCategory.value="";
+        displayExpenses(data.data[0]);
+        
     } catch (error) {
         console.error('Error in saving form', error);
     }
@@ -105,7 +111,7 @@ function displayExpenses(data) {
 
     deleteBtn.onclick = async (e) => {
         const target = e.target.parentElement;
-        const id = data.id;
+        const id = data._id;
         const token = localStorage.getItem('token');
         try {
             await axios.delete(`${API_BASE_URL}/expense/delExpense/${id}`, {
@@ -174,6 +180,7 @@ const premiumRazor = async (data) => {
                     order_id: data.orderData.orderId,
                     payment_id: response.razorpay_payment_id,}, 
                     { headers: { Authorization: token } });
+                    console.log("updateData.data.data.Premium",updateData.data.data.Premium)
                 const premiumData = updateData.data.data.Premium;
                 localStorage.setItem("premium", premiumData);
                         if (localStorage.getItem('premium')==='true') {

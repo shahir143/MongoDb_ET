@@ -1,13 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const expenses =new Schema({
-    id:{
-        type:Number,
-        autoIncrement:true,
-        allowNull:false,
-        primaryKey:true
-    },
+const expenses =new Schema({    
     Expenses:{
         type:Number,
         allowNull:false
@@ -19,7 +13,11 @@ const expenses =new Schema({
     Category:{
         type:String,
         allowNull:false
-    }
+    },
+    user: {
+		type: Schema.Types.ObjectId,
+		ref: "User",
+	},
 })
 
 module.exports = mongoose.model("Expense",expenses);

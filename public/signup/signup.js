@@ -2,7 +2,7 @@ const myForm=document.getElementById('my-Form');
 const username =document.getElementById('Name');
 const useremail=document.getElementById('Email');
 const userPassword=document.getElementById('password');
-const API_BASE_URL = 'http://3.110.88.166:4000';
+const API_BASE_URL = 'http://localhost:4000';
 
 myForm.addEventListener('submit',async(e)=>{
     e.preventDefault();

@@ -9,14 +9,14 @@ const s3=new AWS.S3({
 
 exports.downloadReport=async(req,res)=>{
     try{
-        const usersData=await req.user.getExpenses();
+        const usersData=await Expense.find({ user: req.user._id });
         const StringifedData=JSON.stringify(usersData);
-        const fileName=`Expenses_${req.user.id}_${new Date()}.txt`;
+        const fileName=`Expenses_${req.user._id}_${new Date()}.txt`;
         const fileURL=await uploadToS3(StringifedData,fileName)
         console.log("fileurl:",fileURL);
         await reports.create({
 			fileUrl: fileURL.Location,
-			userId: req.user.id,
+			userId: req.user._id,
 		});
         console.log('fileurl-----',fileURL)
         res.status(200).json({fileURL,sucess:true})
@@ -45,12 +45,11 @@ function uploadToS3(data,name){
 	});
 }
 exports.getDownlist=async(req,res)=>{
-    const user=req.user.id;
+    console.log("req.user",req.user)
     try{
-        const response = await reports.findAll({
-            where: { userId: user}
-        });
-        res.status(200).json({sucess:true, message:"sucessfully get previous reports", data: response});
+        
+        const reportData = await reports.find({ user: req.user._id }, "fileUrl").exec();
+        res.status(200).json({sucess:true, message:"sucessfully get previous reports", data: reportData});
     }catch(err){
         res.status(500).json({sucess:false, message:"failed to get previous reports"});
     }

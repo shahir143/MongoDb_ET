@@ -38,16 +38,16 @@ exports.signup = async (req, res,) => {
 };
 
 function generateTokenAuthorization(user) {
-    const payload = { userId: user.id };
+    const payload = { _id: user._id };
     const secretKey = process.env.SECRET_KEY;
     const token = jwt.sign(payload, secretKey);
     return token;
 }
 
-exports.login = async (req, res, next) => {
+exports.login = async (req, res) => {
     try {
         const { email, password } = req.body;
-        const user = await User.findOne({ where: { userEmail: email } });
+        const user = await User.findOne({ userEmail: email });
 
         if (!user) {
             return res.status(404).json({ success: false, message: 'User not found' });

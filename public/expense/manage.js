@@ -5,7 +5,7 @@ const pagination = document.getElementById("pagination-div");
 const income = document.getElementById('dash-income');
 const expense = document.getElementById('dash-expense');
 const savings = document.getElementById('dash-savings');
-const API_BASE_URL = 'http://3.110.88.166:4000';
+const API_BASE_URL = 'http://localhost:4000';
 
 itemperPage.addEventListener("change", setLimit);
 window.addEventListener('DOMContentLoaded', loadPage);
@@ -33,10 +33,10 @@ async function getpreviousDownloads() {
     try {
         const token = localStorage.getItem('token');
         const response = await axios.get(`${API_BASE_URL}/expense/getprevList`, { headers: { Authorization: token } });
+        console.log(response);
         for (let i = 0; i < response.data.data.length; i++) {
             const data = {
                 url: response.data.data[i].fileUrl,
-                date: response.data.data[i].createdAt.slice(0, 10)
             };
             const existingLinks = document.getElementById("dashboard-list").childElementCount;
             if (existingLinks < 5) {
@@ -51,7 +51,7 @@ async function getpreviousDownloads() {
 async function createLink(data) {
     const container = document.getElementById("dashboard-list");
     const li = document.createElement('li');
-    li.innerHTML = `Report on ${data.date} -<a href="${data.url}">Download</a>`;
+    li.innerHTML = `Report -<a href="${data.url}">Download</a>`;
     container.appendChild(li);
 }
 

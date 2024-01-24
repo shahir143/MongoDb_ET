@@ -22,15 +22,15 @@ const user=new Schema({
     },
     totalexpenses:{
         type:Number,
-        defaultValue:0,
+        default:0,
     },
     premium:{
         type: Boolean,
-        defaultValue: false
+        default: false
     },
     income:{
         type:Number,
-        defaultValue:0,
+        default:0,
     },    
 })
 

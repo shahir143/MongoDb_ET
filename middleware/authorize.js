@@ -6,15 +6,14 @@ exports.authorizationToken = async (req, res, next) => {
         const token = req.headers.authorization;
         const secretKey = process.env.SECRET_KEY;
         
-        console.log('token',token);
         if (!token) {
             return res.status(401).json({ message: "Authorization token is missing" });
         }
 
         const decodedId = jwt.verify(token, secretKey);
 
-        console.log('decode =',decodedId.userId);
-        const loggedUser = await User.findByPk(decodedId.userId );
+		// Find the user associated with the decoded user ID
+		const loggedUser= await User.findOne({ _id: decodedId._id });
 
         if (!loggedUser) {
             return res.status(401).json({ message: "User not found" });

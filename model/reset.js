@@ -7,7 +7,7 @@ const reset =new Schema({
     },
     isActive:{
         type:Boolean,
-        defaultValue:false
+        default:false
     }
 })
 module.exports = mongoose.model("ResetPassword", reset);
